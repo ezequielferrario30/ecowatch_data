@@ -12,7 +12,7 @@ El sistema está orientado a la extensibilidad y mantenibilidad, aplicando buena
 
 
 
-
+```
 ecowatch_data_pipeline/
 ├── data/
 │   └── logs_ambientales_ecowatch.csv
@@ -39,7 +39,7 @@ ecowatch_data_pipeline/
 │   └── test_log.py
 ├── requirements.txt
 └── README.md
-
+```
 
 ## El sistema:
 
