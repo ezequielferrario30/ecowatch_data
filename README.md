@@ -64,30 +64,34 @@ Se incluyen pruebas unitarias básicas con pytest. Para ejecutarlas:
 
 
 ## Arquitectura y diseño
-Programación Orientada a Objetos para modelar sensores, salas y logs.
 
-Patrón Factory para creación flexible y extensible de reportes.
+- Programación Orientada a Objetos para modelar sensores, salas y logs.
 
-Patrón Strategy para encapsular lógica de cada tipo de reporte.
+- Patrón Factory para creación flexible y extensible de reportes.
 
-Decoradores para logging y posibles extensiones (benchmarking, validaciones).
+- Patrón Strategy para encapsular lógica de cada tipo de reporte.
 
-Caché temporal optimizada para consultas rápidas y manejo de eventos fuera de orden.
+- Decoradores para logging y posibles extensiones (benchmarking, validaciones).
 
-Futuras mejoras
-Integración con bases de datos para almacenamiento persistente.
+- Caché temporal optimizada para consultas rápidas y manejo de eventos fuera de orden.
 
-Dashboards visuales e interacción en tiempo real.
+## Futuras mejoras
 
-Alertas automáticas vía email o mensajería.
+- Integración con bases de datos para almacenamiento persistente.
 
-Más pruebas unitarias y pruebas de integración.
+- Dashboards visuales e interacción en tiempo real.
 
-Optimización avanzada para volúmenes masivos de datos.
+- Alertas automáticas vía email o mensajería.
+
+- Más pruebas unitarias y pruebas de integración.
+
+- Optimización avanzada para volúmenes masivos de datos.
 
 
 **Para observar la documentacion de este trabajo podes observarla en el archivo `Ecowatch- documentacion.pdf`**
 
-Autor
+## Autor
+
 Ezequiel Ferrario
+
 GitHub: https://github.com/ezequielferrario30
