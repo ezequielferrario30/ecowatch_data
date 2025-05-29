@@ -10,6 +10,9 @@ El sistema está orientado a la extensibilidad y mantenibilidad, aplicando buena
 
 ## Estructura del proyecto
 
+
+
+
 ecowatch_data_pipeline/
 ├── data/
 │   └── logs_ambientales_ecowatch.csv
@@ -38,9 +41,7 @@ ecowatch_data_pipeline/
 └── README.md
 
 
-
-
-El sistema:
+## El sistema:
 
 Lee el archivo CSV con logs ambientales.
 
@@ -54,14 +55,15 @@ Exporta los reportes a archivos CSV y Excel.
 
 Muestra salidas limpias en consola.
 
-Testing
+## Testing
 Se incluyen pruebas unitarias básicas con pytest. Para ejecutarlas:
 
 
 
 `pytest tests/`
 
-Arquitectura y diseño
+
+## Arquitectura y diseño
 Programación Orientada a Objetos para modelar sensores, salas y logs.
 
 Patrón Factory para creación flexible y extensible de reportes.
