@@ -2,7 +2,7 @@ from .log_reader import CSVLogReader
 from .cache import RecentLogsCache
 from datetime import datetime, timedelta
 from .domain import Log, Sensor, Sala, Reporte
-
+from .reportes.factory import ReportFactory
 
 if __name__ == "__main__":
     file_path = "D:/ecowatch_data_pipeline/data/logs_ambientales_ecowatch.csv"
@@ -31,7 +31,6 @@ if __name__ == "__main__":
 
     # Generar y mostrar un reporte diario para la sala
     reporte = Reporte(sala1)
-    # Usamos el día del primer log de la sala (ajustá según tus datos)
     if sensor1.logs:
         fecha_reporte = sensor1.logs[0].timestamp
         print("\nReporte diario de Sala_1:")
@@ -75,3 +74,36 @@ if __name__ == "__main__":
         esta = "Sí" if cache.query_by_sala(sala_test) else "No"
         print(f"¿Incluye la {sala_test}? {esta}")
     print(f"¿Incluye Sala_test_fuera? {'Sí' if cache.query_by_sala('Sala_test_fuera') else 'No'}")
+
+    # =================== STEP 4: REPORTES MODULARES (FACTORY + STRATEGY) ===================
+    print("\n[STEP 4] ========== REPORTES MODULARES (FACTORY + STRATEGY) ==========\n")
+
+    # Crear y mostrar reporte por sala
+    reporte_estado = ReportFactory.crear_reporte("estado_por_sala", sala1)
+    print("Reporte generado por Factory (estado por sala):")
+    print(reporte_estado.generar())
+
+reporte_alertas = ReportFactory.crear_reporte("alertas", sala1)
+result_alertas = reporte_alertas.generar()
+
+print("\nReporte generado por Factory (alertas):")
+print(f"Sala: {result_alertas['sala']}")
+print(f"Cantidad de alertas: {result_alertas['cantidad_alertas']}")
+
+# Mostrar solo los primeros 3 registros de alerta
+primeras_alertas = result_alertas['alertas'][:3]
+for i, alerta in enumerate(primeras_alertas, 1):
+    print(f"Alerta {i}: {alerta}")
+
+if result_alertas['cantidad_alertas'] > 3:
+    print(f"...y {result_alertas['cantidad_alertas']-3} alertas más.")
+
+reporte_extremas = ReportFactory.crear_reporte("temp_extremas", sala1)
+result_extremas = reporte_extremas.generar()
+print("\nReporte de temperaturas extremas:")
+print(f"Sala: {result_extremas['sala']}")
+print(f"Cantidad de registros extremos: {result_extremas['cantidad_temp_extremas']}")
+for i, log in enumerate(result_extremas['registros_extremos'][:3], 1):
+    print(f"Extremo {i}: {log}")
+if result_extremas['cantidad_temp_extremas'] > 3:
+    print(f"...y {result_extremas['cantidad_temp_extremas']-3} más.")
