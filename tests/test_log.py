@@ -1,5 +1,7 @@
 import unittest
 from src.domain import Log
+from src.domain.log import Log
+import pytest
 
 class TestLog(unittest.TestCase):
     def test_valid_log(self):
@@ -41,3 +43,8 @@ class TestLog(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_temperatura_fuera_de_rango():
+    with pytest.raises(ValueError):
+        Log("2024-01-01T00:00", "A", "INFO", 100, 50, 400, "msg")
